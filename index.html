@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,200..400,0..1,0&icon_names=add,auto_awesome,check,eco,hourglass_top,info,replay,search,send,shopping_bag,star,timer,tune&display=block">
 <style>
 /* Layout: navy cover like the OneMICE deck, sticky section nav, then interactive chapters: before/after process toggle, tabbed diagnostic, module ↔ journey mapping, traffic-light simulator, timeline. */
 :root{
@@ -298,6 +300,212 @@ details.pol summary::after{content:"+";font-size:20px;color:var(--muted);transit
 details.pol[open] summary::after{transform:rotate(45deg)}
 details.pol[open] > div{margin-top:14px;display:grid;gap:12px}
 
+/* ---------- 05 Plateforme : recherche, assistant IA, Analytics (styles limités à #plateforme) ---------- */
+:root{--font:var(--font-body);--faint:#8E95A3;--vapor:#DFE5ED;--graphite:#515F78;--midnight:#262B38;--tangerine:#F74F23}
+#plateforme{background:var(--mist)}
+#plateforme .bar{display:grid;gap:10px;align-items:center}
+#plateforme .bar .t{height:14px;background:#EEF1F3;border-radius:4px;overflow:hidden}
+#plateforme .bar .t i{display:block;height:100%;border-radius:4px}
+#plateforme .bar .v{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+#plateforme .simhead:first-of-type{margin-top:0}
+/* ---------- 05 Simulation ---------- */
+:root{--f:var(--font);--f-app:"Roboto Condensed","Arial Narrow",Arial,sans-serif;--p-navy:#1F3A4C;--p-line:#2B3A45;--p-green:#A9C86B;--p-soft:#F4F6F7;--orange:var(--tangerine);--orange-text:var(--accent-text);--orange-soft:var(--accent-soft);--shadow:0 18px 40px -24px rgba(38,43,56,.35),0 1px 2px rgba(38,43,56,.06)}
+#plateforme .ms{font-family:"Material Symbols Rounded";font-weight:300;font-style:normal;font-size:20px;line-height:1;display:inline-block;white-space:nowrap;text-transform:none;letter-spacing:normal;font-feature-settings:"liga";font-variation-settings:"FILL" 0,"wght" 300,"opsz" 24;vertical-align:middle}
+
+#plateforme .simhead{margin-top:48px}
+#plateforme .twoq{margin:0 0 16px;padding:12px 14px;border-radius:10px;background:#FDF3DF;color:#7A4E05;font:14.5px/1.45 var(--font);display:flex;gap:10px;align-items:flex-start;max-width:860px}
+#plateforme .app{background:#fff;border-radius:20px;box-shadow:0 40px 80px -40px rgba(38,43,56,.55),0 0 0 1px rgba(38,43,56,.08);overflow:hidden;font-family:var(--f-app);color:var(--p-line)}
+#plateforme .app-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--p-soft);border-bottom:1px solid #E3E7EA}
+#plateforme .app-bar .dots{display:flex;gap:6px}#plateforme .app-bar .dots i{width:10px;height:10px;border-radius:50%;background:#D5DADF}
+#plateforme .app-bar .url{flex:1;min-width:0;font:13px/1 var(--f);color:#6B7782;background:#fff;border-radius:999px;padding:8px 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#plateforme .app-bar .demo{font:700 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);background:var(--vapor);padding:7px 10px;border-radius:999px;white-space:nowrap}
+#plateforme .stepper{display:flex;gap:4px;padding:14px 20px;border-bottom:1px solid #E8ECEE;overflow-x:auto;scrollbar-width:none}
+#plateforme .stepper::-webkit-scrollbar{display:none}
+#plateforme .stepper div{display:flex;align-items:center;gap:8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;color:#9AA4AD;padding:6px 10px;border-radius:999px}
+#plateforme .stepper div em{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;border:1.5px solid currentColor;font-size:12px}
+#plateforme .stepper div.on{color:var(--p-navy);background:#EEF2F4;font-weight:700}
+#plateforme .stepper div.ok{color:var(--p-navy)}
+#plateforme .stepper div.ok em{background:var(--p-navy);color:#fff;border-color:var(--p-navy)}
+#plateforme .screen{padding:24px;min-width:0;min-height:560px}
+#plateforme .app h4{font-family:var(--f-app);font-weight:500;text-transform:uppercase;font-size:21px;letter-spacing:.01em;color:var(--p-navy)}
+#plateforme .crumb{font-size:15px;margin-top:4px}
+#plateforme .inp,#plateforme .sel{width:100%;font:16px/1.2 var(--f-app);color:var(--p-line);background:#fff;border:1.5px solid var(--p-line);border-radius:10px;padding:12px 16px;appearance:none;-webkit-appearance:none}
+#plateforme .sel{background-image:linear-gradient(45deg,transparent 50%,var(--p-line) 50%),linear-gradient(135deg,var(--p-line) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+#plateforme .pbtn{font:500 16px/1 var(--f-app);text-transform:uppercase;letter-spacing:.02em;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:10px;border:1.5px solid var(--p-line);background:#fff;color:var(--p-line);cursor:pointer;transition:background .2s,opacity .2s;text-decoration:none}
+#plateforme .pbtn:hover{background:#F2F5F7}
+#plateforme .pbtn.dark,#plateforme .pbtn.incart{background:var(--p-navy);color:#fff;border-color:var(--p-navy)}
+#plateforme .pbtn.dark:hover{background:#2A4A5F}
+#plateforme .pbtn[disabled]{opacity:.4;cursor:not-allowed}
+#plateforme .tog{display:flex;align-items:flex-start;gap:12px;font-size:16px;cursor:pointer;line-height:1.25}
+#plateforme .tog input{appearance:none;-webkit-appearance:none;width:36px;height:20px;border-radius:999px;background:#C9CFD4;position:relative;flex-shrink:0;cursor:pointer;transition:background .2s;margin:0}
+#plateforme .tog input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+#plateforme .tog input:checked{background:var(--p-navy)}
+#plateforme .tog input:checked::after{transform:translateX(16px)}
+#plateforme .side h5{font:500 20px/1.1 var(--f-app);text-transform:uppercase;color:var(--p-navy);margin:22px 0 10px}
+#plateforme .brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;margin-top:22px;max-width:760px}
+#plateforme .brief .full{grid-column:1/-1}
+#plateforme .brief label{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;color:#5E6A74}
+@media (max-width:600px){#plateforme .brief{grid-template-columns:1fr}}
+#plateforme .hint{display:flex;gap:12px;align-items:flex-start;margin-top:22px;max-width:760px;padding:14px 16px;border-radius:10px;background:var(--p-soft);font:14.5px/1.45 var(--f);color:#4A5660}
+#plateforme .search{display:grid;grid-template-columns:minmax(220px,270px) 1fr;gap:26px;min-width:0}
+@media (max-width:860px){#plateforme .search{grid-template-columns:1fr}}
+#plateforme .side{display:grid;gap:12px;align-content:start;min-width:0}
+#plateforme .side .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#plateforme .toggles{display:grid;gap:14px}
+#plateforme .results{min-width:0}
+#plateforme .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:20px}
+#plateforme .vcard{background:#fff;border-radius:6px;box-shadow:0 2px 14px rgba(20,35,45,.12);overflow:hidden;display:flex;flex-direction:column;transition:transform .24s var(--ease)}
+#plateforme .vcard:hover{transform:translateY(-2px)}
+#plateforme .vcard .ph{aspect-ratio:16/9;position:relative;background:#ddd;max-width:100%}
+#plateforme .vcard .ph svg{display:block;width:100%;height:100%}
+#plateforme .vcard .ph img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#plateforme .vcard .ph .fl{z-index:1}
+#plateforme .cmp img.cth{display:block;width:120px;aspect-ratio:16/10;object-fit:cover;border-radius:6px;margin-bottom:8px}
+#plateforme .vcard .fl{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:6px;background:rgba(31,58,76,.88);color:#fff;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:5px 9px 5px 7px;border-radius:999px}
+#plateforme .vcard .fl i{width:10px;height:10px;border-radius:50%}
+#plateforme .vcard .bd{padding:14px 12px 12px;display:flex;flex-direction:column;gap:10px;flex:1}
+#plateforme .vcard h6{font:500 19px/1.15 var(--f-app);text-transform:uppercase;margin:0;min-height:2.3em}
+#plateforme .vcard .meta{font-size:14px;color:#3C4952}
+#plateforme .badges{display:flex;flex-wrap:wrap;gap:6px}
+#plateforme .badges span{display:inline-flex;align-items:center;gap:3px;font-size:14px;font-weight:500;padding:4px 8px;border-radius:6px;background:#EEF1F3}
+#plateforme .badges .ms{font-size:16px}
+#plateforme .badges .cc{background:#E4EFD6;color:#3E5A1D}
+#plateforme .badges .es{background:#FFF0EB;color:#9A3412}
+#plateforme .vcard .price{font-size:14.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#plateforme .vcard .price b{font-size:17px;font-weight:700}
+#plateforme .vcard .pbtn{margin-top:auto;width:100%;font-size:15px;padding:12px}
+#plateforme .cartbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding:16px 24px;border-top:1px solid #E8ECEE;background:#fff}
+#plateforme .slot{width:118px;height:46px;border:1.5px dashed var(--p-line);border-radius:8px;display:grid;place-items:center;font-size:12.5px;text-transform:uppercase;text-align:center;line-height:1.1;padding:2px 6px;overflow:hidden;background:#fff}
+#plateforme .slot.f{border-style:solid;background:#EEF2F4;font-weight:500}
+@media (max-width:760px){#plateforme .slot{width:calc(20% - 8px);min-width:40px;font-size:0}#plateforme .slot.f::after{content:"✓";font-size:16px}#plateforme .slot .ms{font-size:18px}}
+#plateforme .empty{padding:40px;text-align:center;color:#6B7782;border:1.5px dashed #C9CFD4;border-radius:8px}
+#plateforme .rfq{display:grid;gap:8px;margin:18px 0 22px;max-width:640px}
+#plateforme .rfq div{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 14px;border-radius:8px;background:var(--p-soft);font-size:15.5px}
+#plateforme .rfq em{font-style:normal;font-size:13px;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:6px;white-space:nowrap}
+#plateforme .rfq em.wait{color:#8A949C}#plateforme .rfq em.ok{color:#2E7D55}
+#plateforme .tablewrap{overflow-x:auto;border-radius:8px;border:1px solid #E3E7EA}
+#plateforme table.cmp{border-collapse:collapse;width:100%;min-width:860px;font-size:15px}
+#plateforme .cmp th{background:var(--p-green);color:#1E2B10;text-align:left;font-weight:700;font-size:13px;padding:11px 12px;white-space:nowrap}
+#plateforme .cmp td{padding:12px;border-top:1px solid #E8ECEE;vertical-align:top}
+#plateforme .cmp td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+#plateforme .cmp s{color:#8A949C;font-size:13px;display:block}
+#plateforme .cmp ul{margin:0;padding:0;list-style:none;font-size:13.5px;color:#4A5660;display:grid;gap:2px}
+#plateforme .lt{display:inline-flex;align-items:center;gap:6px;font-size:13px;text-transform:uppercase;white-space:nowrap}
+#plateforme .lt i{width:12px;height:12px;border-radius:50%}
+#plateforme .pick{font-size:13.5px;padding:10px 12px}
+#plateforme .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+@media (max-width:900px){#plateforme .two{grid-template-columns:1fr}}
+#plateforme .vpanel{border:1px solid #E3E7EA;border-radius:10px;padding:20px;min-width:0}
+#plateforme .vpanel h6{font:500 17px/1.2 var(--f-app);text-transform:uppercase;margin:0 0 14px;color:var(--p-navy)}
+#plateforme .wf{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+#plateforme .wf li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;font-size:15.5px}
+#plateforme .wf .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#EEF1F3}
+#plateforme .wf li.ok .ic{background:#DDEFE5;color:#2E7D55}
+#plateforme .wf li.pend .ic{background:#FBEFD9;color:#9A6512}
+#plateforme .wf li small{display:block;font-size:13px;color:#6B7782}
+#plateforme .tlamp{width:70px;padding:10px;background:var(--ink);border-radius:35px;display:grid;gap:8px;flex-shrink:0}
+#plateforme .tlamp i{width:50px;height:50px;border-radius:50%;background:#3A4152;display:block;transition:background .3s,box-shadow .3s}
+#plateforme .tlamp[data-l=rouge] i.r{background:var(--stop);box-shadow:0 0 20px var(--stop)}
+#plateforme .tlamp[data-l=orange] i.o{background:var(--wait);box-shadow:0 0 20px var(--wait)}
+#plateforme .tlamp[data-l=vert] i.g{background:var(--go);box-shadow:0 0 20px var(--go)}
+#plateforme .bigl{display:flex;align-items:center;gap:18px}
+#plateforme .bigl p{font:15.5px/1.5 var(--f);color:#3C4952}
+#plateforme .bigl b{font:500 22px/1.2 var(--f-app);text-transform:uppercase;display:block;margin-bottom:4px}
+#plateforme .po{margin-top:18px;padding:14px 16px;border-radius:10px;background:#EEF6EA;color:#2B4A17;font:15px/1.45 var(--f);animation:pop .4s var(--ease)}
+@keyframes pop{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+#plateforme .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+#plateforme .fict{font:12.5px/1.4 var(--f);color:var(--graphite);padding:10px 20px;background:var(--mist);border-top:1px solid #E8ECEE}
+#plateforme .simhead{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;font-size:20px;font-weight:700}
+#plateforme .simhead > span{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-text)}
+
+/* ---------- Assistant IA ---------- */
+#plateforme .chat{display:grid;grid-template-columns:1fr 280px;min-height:560px}
+@media (max-width:900px){#plateforme .chat{grid-template-columns:1fr}}
+#plateforme .chat-main{display:flex;flex-direction:column;min-width:0;border-right:1px solid #E8ECEE}
+#plateforme .log{flex:1;padding:22px;display:flex;flex-direction:column;gap:16px;overflow-y:auto;max-height:620px;font-family:var(--f)}
+#plateforme .msg{max-width:88%;padding:14px 16px;border-radius:16px;font-size:15px;line-height:1.5}
+#plateforme .msg.u{align-self:flex-end;background:var(--p-navy);color:#fff;border-bottom-right-radius:4px}
+#plateforme .msg.a{align-self:flex-start;background:var(--p-soft);border-bottom-left-radius:4px;color:#22303A;width:88%}
+#plateforme .msg.a .who3{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--p-navy);margin-bottom:6px}
+#plateforme .msg.a .viz{margin-top:12px;background:#fff;border-radius:10px;padding:14px;display:grid;gap:8px}
+#plateforme .msg.a .viz .bar{grid-template-columns:minmax(110px,170px) 1fr 70px;font-size:13px}
+#plateforme .msg.a .viz .bar .t i{background:var(--p-navy)}
+#plateforme .msg.a .meta2{font-size:12px;color:#6B7782;margin-top:10px}
+#plateforme .stack{display:flex;height:22px;border-radius:6px;overflow:hidden}
+#plateforme .stack i{display:block;height:100%}
+#plateforme .leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px}
+#plateforme .leg span{display:flex;align-items:center;gap:6px}
+#plateforme .leg i{width:10px;height:10px;border-radius:3px}
+#plateforme .minitab{width:100%;border-collapse:collapse;font-size:13.5px}
+#plateforme .minitab td,#plateforme .minitab th{padding:6px 8px;border-bottom:1px solid #EEF1F3;text-align:left}
+#plateforme .minitab th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#6B7782}
+#plateforme .minitab td.r,#plateforme .minitab th.r{text-align:right;font-variant-numeric:tabular-nums}
+#plateforme .typing{display:inline-flex;gap:4px}
+#plateforme .typing i{width:6px;height:6px;border-radius:50%;background:#8A949C;animation:bl 1s infinite}
+#plateforme .typing i:nth-child(2){animation-delay:.15s}#plateforme .typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+#plateforme .ask{display:flex;gap:10px;padding:14px;border-top:1px solid #E8ECEE}
+#plateforme .ask .inp{font-family:var(--f);font-size:15px}
+#plateforme .ask .pbtn{padding:12px 16px}
+#plateforme .chat-side{padding:20px;display:grid;gap:10px;align-content:start;font-family:var(--f)}
+#plateforme .chat-side h6{font:600 13px/1.2 var(--f);letter-spacing:.08em;text-transform:uppercase;color:#6B7782;margin:0 0 4px}
+#plateforme .chat-side button{text-align:left;border:1px solid #D9DEE2;background:#fff;border-radius:12px;padding:10px 12px;font:14px/1.35 var(--f);cursor:pointer;color:#22303A}
+#plateforme .chat-side button:hover{background:var(--p-soft)}
+#plateforme .chat-side button.new{border-color:var(--orange);background:var(--orange-soft)}
+#plateforme .simhead .btn{margin-left:auto;font-size:14px;padding:10px 16px}
+#plateforme .simhead.row{display:flex;flex-wrap:wrap;align-items:center}
+#plateforme .module{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:24px;background:var(--mist);border-radius:20px;padding:30px;align-items:start}
+@media (max-width:860px){#plateforme .module{grid-template-columns:1fr;padding:22px}}
+#plateforme .module h3{font-size:24px;margin:8px 0 10px}
+#plateforme .module p{font-size:15.5px;color:var(--muted)}
+#plateforme .module ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+#plateforme .module li{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line)}
+#plateforme .module .mfig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+#plateforme .module .mfig div{border-top:2px solid var(--ink);padding-top:10px;font-size:13.5px;color:var(--muted)}
+#plateforme .module .mfig b{display:block;font-size:28px;font-weight:800;color:var(--orange-text);letter-spacing:-.03em}
+#plateforme .axes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+#plateforme .axes span{font-size:13.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+#plateforme .axes .axl{border:0;padding-left:0;font-weight:700;background:none}
+#plateforme .anx{display:grid;grid-template-columns:250px 1fr;gap:18px;align-items:start}
+@media (max-width:900px){#plateforme .anx{grid-template-columns:1fr}#plateforme .antabs{display:flex!important;overflow-x:auto;scrollbar-width:none}#plateforme .antabs button{white-space:nowrap}}
+#plateforme .antabs{display:grid;gap:6px}
+#plateforme .antabs button{text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+#plateforme .antabs button small{font-weight:600;color:var(--muted);font-size:12px}
+#plateforme .antabs button[aria-selected=true]{border-color:var(--orange);box-shadow:inset 3px 0 0 var(--orange);color:var(--orange-text)}
+#plateforme .anp{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+#plateforme .anp-h{padding:22px 24px 16px}
+#plateforme .anp-h h3{font-size:22px}
+#plateforme .anp-h p{color:var(--muted);font-size:15px;margin-top:6px;max-width:70ch}
+#plateforme .anp-ind{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+#plateforme .anp-ind span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--mist);color:var(--graphite)}
+#plateforme .anp-scr{border-top:3px solid var(--p-green);background:#FAFBFB;padding:18px 24px;font-family:var(--f-app);color:var(--p-line)}
+#plateforme .anp-scr .fl2{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;font:12.5px var(--f)}
+#plateforme .anp-scr .fl2 span{border:1px solid #C9CFD4;border-radius:6px;padding:6px 10px;background:#fff;color:#4A5660}
+#plateforme .aks{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+#plateforme .ak{background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(20,35,45,.09);overflow:hidden}
+#plateforme .ak .h{display:flex;justify-content:space-between;gap:8px;background:var(--p-green);color:#1E2B10;font:700 12.5px/1.3 var(--f);padding:8px 12px;margin:8px 8px 0;border-radius:7px}
+#plateforme .ak .h b{font-size:15px;white-space:nowrap}
+#plateforme .ak ul{list-style:none;margin:0;padding:10px 14px 12px;display:grid;gap:4px;font:13px var(--f);color:#3C4952}
+#plateforme .ak li{display:flex;justify-content:space-between;gap:8px}
+#plateforme .ak li span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+#plateforme .atw{overflow-x:auto;border-radius:8px;border:1px solid #E3E7EA;background:#fff}
+#plateforme .at{width:100%;border-collapse:collapse;font:13.5px var(--f);min-width:560px}
+#plateforme .at th{background:var(--p-green);color:#1E2B10;text-align:left;padding:9px 10px;font-size:12px;white-space:nowrap}
+#plateforme .at td{padding:9px 10px;border-top:1px solid #EEF1F3;font-variant-numeric:tabular-nums}
+#plateforme .at td.r,#plateforme .at th.r{text-align:right}
+#plateforme .hb{display:grid;grid-template-columns:120px 1fr 60px;gap:10px;align-items:center;font:13px var(--f);padding:4px 0}
+#plateforme .hb .t{height:14px;background:#EEF1F3;border-radius:4px;overflow:hidden}
+#plateforme .hb .t i{display:block;height:100%;background:var(--p-navy);border-radius:4px}
+#plateforme .hb .v{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+#plateforme .anp-q{padding:18px 24px 22px;display:grid;gap:8px}
+#plateforme .anp-q h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-text)}
+#plateforme .anp-q ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px}
+#plateforme .chat-side .guard{font-size:12.5px;color:#6B7782;margin-top:8px;line-height:1.45}
+#plateforme .note{font-size:13px;color:var(--muted);margin-top:14px}
+#plateforme .btn-dark{background:var(--midnight);color:#fff}
+#plateforme .pbtn[disabled]:hover{background:inherit}
+
+
 /* ---------- Next steps ---------- */
 .timeline{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding-top:30px}
 .timeline .rail{position:absolute;left:0;right:0;top:8px;height:3px;border-radius:3px;background:var(--line)}
@@ -430,7 +638,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li><a href="#diagnostic"><span class="mono">02</span>Diagnostic</a></li>
       <li><a href="#solution"><span class="mono">03</span>Solution</a></li>
       <li><a href="#feux"><span class="mono">04</span>Feux tricolores</a></li>
-      <li><a href="#suite"><span class="mono">05</span>Suite</a></li>
+      <li><a href="#plateforme"><span class="mono">05</span>Plateforme</a></li>
+      <li><a href="#suite"><span class="mono">06</span>Suite</a></li>
     </ol>
   </div>
   <div class="progress" id="progress"></div>
@@ -619,10 +828,56 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
+<section id="plateforme">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">05 · La plateforme en action</p>
+      <h2>Une recherche, une validation, <em>puis le reporting</em></h2>
+      <p>Les trois écrans que nous vous avons présentés le 15 octobre, à manipuler vous-même. La recherche applique les plafonds par équipe du chapitre précédent, la commande remonte dans Ivalua, et l'assistant IA répond aux questions de votre contrôle de gestion.</p>
+    </div>
+
+    <div class="simhead"><span>Temps 1</span>Recherche, comparaison et validation d'un lieu</div>
+    <div class="app" id="app">
+      <div class="app-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url" id="appUrl">onemice.fr/demande/nouvelle</span><span class="demo">Simulation</span></div>
+      <div class="stepper" id="stepper"></div>
+      <div class="screen" id="screen"></div>
+      <div id="cartbar"></div>
+      <p class="fict">Lieux, prix et numéros fictifs, à titre d'illustration. Photos d'illustration : Unsplash. Plafonds d'exemple, identiques à ceux du chapitre 04.</p>
+    </div>
+
+    <div class="simhead row" id="ia"><span>Temps 2</span>Interroger la dépense avec l'assistant IA<button type="button" class="btn btn-dark" id="replay"><span class="ms">replay</span>Rejouer la démonstration</button></div>
+    <div class="app">
+      <div class="app-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">onemice.fr/reporting/assistant</span><span class="demo">Données fictives</span></div>
+      <div class="chat">
+        <div class="chat-main">
+          <div class="log" id="log" aria-live="polite"></div>
+          <form class="ask" id="askForm"><input class="inp" id="askIn" aria-label="Votre question" placeholder="Posez une question sur la dépense événementielle de Renault"><button class="pbtn dark" type="submit" aria-label="Envoyer"><span class="ms">send</span></button></form>
+        </div>
+        <div class="chat-side"><h6>Questions suggérées</h6><div id="sugg" style="display:grid;gap:8px"></div><p class="guard">L'IA ne décide pas : elle prépare, vous validez. Rapports enregistrables et mis à jour automatiquement. Aucune donnée utilisée pour entraîner des modèles externes.</p></div>
+      </div>
+      <p class="fict">Données fictives de démonstration, construites sur vos ordres de grandeur (environ 800 k€ et 230 événements par an), sans lien avec votre dépense réelle.</p>
+    </div>
+
+    <div class="module">
+      <div><span class="eyebrow">Module de reporting</span><h3>Un reporting complet, qui fonctionne aussi sans l'IA</h3><p>L'assistant est une porte d'entrée parmi d'autres. Le module de reporting fonctionne seul : tableaux de bord prêts à l'emploi, filtres par équipe, centre de coût, prestataire, période et type de contrat, rapports mis à jour en temps réel ou envoyés chaque semaine, exports tableur et PDF, remontée dans Ivalua.</p></div>
+      <div><ul><li>Vue d'ensemble des KPI</li><li>Économies</li><li>Fournisseurs</li><li>Contrôle MICE</li><li>Finances</li><li>Rapports</li></ul>
+        <div class="mfig"><div><b>220</b>filtres de reporting</div><div><b>Temps réel</b>dès la commande</div><div><b>Par équipe</b>RP, marketing, after-sales</div></div></div>
+    </div>
+
+    <div class="simhead row" id="analytics"><span>Temps 3</span>Ce que vous analysez dans le module Analytics</div>
+    <div class="axes"><span class="axl">Chaque indicateur se croise par</span><span>Équipe organisatrice</span><span>Centre de coût</span><span>Prestataire ou chaîne</span><span>Type d'événement</span><span>Type de contrat : contrat-cadre, marché libre</span><span>Feu tricolore</span><span>Date de l'événement</span></div>
+    <div class="anx">
+      <div class="antabs" role="tablist" id="antabs" aria-label="Onglets du module Analytics"></div>
+      <div class="anp" id="anp" role="tabpanel" aria-live="polite"></div>
+    </div>
+    <p class="note">Exemples d'écrans avec des données fictives. Les onglets et indicateurs sont ceux du module Analytics de la plateforme.</p>
+  </div>
+</section>
+
 <section id="suite">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <p class="eyebrow">05 · La suite</p>
+      <p class="eyebrow">06 · La suite</p>
       <h2>Rester en contact, <em>puis répondre à l'appel d'offres</em></h2>
       <p>Votre périmètre est stable jusqu'à fin 2027. Nous proposons de nous revoir aux moments utiles, sans vous solliciter entre-temps.</p>
     </div>
@@ -950,6 +1205,256 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     const fallback=()=>{const r=document.createRange();r.selectNodeContents($("mail"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Sélectionné"};
     try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
   });
+})();
+</script>
+<script>
+(function(){
+const RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const eur=n=>Math.round(n).toLocaleString('fr-FR').replace(/ | /g,' ')+' €';
+/* Plafonds : mêmes valeurs d'exemple que le simulateur du chapitre 04 */
+const SE={sem:270,jde:85,rest:60,s2:30000}, TOL=.15;
+const TEAMS={int:{n:'Équipes internes (team building, séminaire)',m:1},rp:{n:'RP et presse (journalistes)',m:1.4},dir:{n:'Direction et leadership team',m:1.25}};
+const capOf=type=>Math.round(SE[type]*TEAMS[S.req.team].m);
+/* ---------- Temps 1 : recherche ---------- */
+const TYPES={sem:'Séminaire résidentiel',jde:"Journée d'étude",rest:'Restauration'};
+const TK=t=>Object.keys(TYPES).find(k=>TYPES[k]===t);
+function light(type,price,total,contract){
+  const cap=capOf(type);
+  if(price>cap*(1+TOL)||total>SE.s2) return 'rouge';
+  if(price>cap||!contract) return 'orange';
+  return 'vert';
+}
+const LC={vert:'var(--go)',orange:'var(--wait)',rouge:'var(--stop)'}, LT={vert:'Conforme',orange:'Validation avec motif',rouge:'Avis Achats'};
+let uid=0;
+function scene(type,h){
+  const id='g'+(uid++), c=(s,l)=>`hsl(${h} ${s}% ${l}%)`; let b='';
+  if(type==='domaine'){ b=`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c(45,76)}"/><stop offset="1" stop-color="${c(30,93)}"/></linearGradient></defs><rect width="320" height="180" fill="url(#${id})"/><circle cx="262" cy="42" r="17" fill="hsl(42 95% 86%)"/><path d="M0 118 Q70 92 150 112 T320 100 V180 H0Z" fill="hsl(${(h+80)%360} 22% 60%)"/><rect x="96" y="74" width="128" height="58" fill="hsl(36 32% 90%)"/><polygon points="88,76 160,44 232,76" fill="hsl(212 16% 34%)"/>${[0,1,2,3,4,5].map(i=>`<rect x="${106+i*19}" y="84" width="9" height="13" fill="hsl(212 28% 38%)"/><rect x="${106+i*19}" y="106" width="9" height="13" fill="hsl(212 28% 38%)"/>`).join('')}<rect x="152" y="112" width="16" height="20" fill="hsl(28 30% 40%)"/><circle cx="58" cy="112" r="24" fill="hsl(128 24% 36%)"/><circle cx="34" cy="122" r="18" fill="hsl(128 22% 30%)"/><circle cx="270" cy="114" r="22" fill="hsl(128 24% 34%)"/><path d="M0 140 Q160 126 320 142 V180 H0Z" fill="hsl(96 34% 48%)"/>`; }
+  else if(type==='pleniere'){ b=`<rect width="320" height="180" fill="${c(14,86)}"/>${[...Array(12)].map((_,i)=>`<rect x="${i*28}" y="0" width="14" height="22" fill="hsl(30 30% 38%)"/>`).join('')}<rect x="102" y="34" width="116" height="58" fill="hsl(200 70% 66%)" stroke="hsl(212 20% 25%)" stroke-width="3"/><polygon points="0,180 320,180 266,100 54,100" fill="${c(12,52)}"/>${[0,1,2,3,4].map(r=>{const y=108+r*15,w=10+r*3,n=7,sp=150+r*44;return [...Array(n)].map((_,k)=>`<rect x="${160-sp/2+k*(sp/(n-1))-w/2}" y="${y}" width="${w}" height="${6+r*1.6}" rx="2" fill="hsl(212 22% 24%)"/>`).join('')}).join('')}`; }
+  else if(type==='restaurant'){ b=`<rect width="320" height="180" fill="${c(30,80)}"/><rect width="320" height="30" fill="hsl(28 28% 34%)"/><rect x="20" y="40" width="80" height="70" fill="hsl(200 40% 78%)"/><rect x="220" y="40" width="80" height="70" fill="hsl(200 40% 78%)"/>${[70,160,250].map(x=>`<line x1="${x}" y1="30" x2="${x}" y2="56" stroke="hsl(30 20% 25%)"/><circle cx="${x}" cy="60" r="8" fill="hsl(42 95% 72%)"/>`).join('')}<rect y="118" width="320" height="62" fill="${c(20,48)}"/>${[[70,136],[160,146],[250,136],[115,166],[210,166]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="30" ry="9" fill="#fff"/><rect x="${x-38}" y="${y-14}" width="8" height="14" rx="2" fill="hsl(212 20% 28%)"/><rect x="${x+30}" y="${y-14}" width="8" height="14" rx="2" fill="hsl(212 20% 28%)"/>`).join('')}`; }
+  else { b=`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c(50,72)}"/><stop offset="1" stop-color="${c(30,90)}"/></linearGradient></defs><rect width="320" height="180" fill="url(#${id})"/><rect x="40" y="70" width="70" height="90" fill="hsl(212 12% 70%)"/><rect x="110" y="26" width="120" height="134" fill="hsl(212 14% 82%)"/>${[...Array(6)].map((_,r)=>[...Array(5)].map((_,k)=>`<rect x="${120+k*22}" y="${36+r*19}" width="13" height="11" fill="hsl(206 40% 46%)"/>`).join('')).join('')}<rect x="230" y="60" width="60" height="100" fill="hsl(212 12% 66%)"/><rect y="158" width="320" height="22" fill="hsl(212 10% 45%)"/>`; }
+  return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${b}</svg>`;
+}
+const V=[
+ {id:1,ph:'1717240049346-b6a9f43f4e1c',name:'Domaine de la Forêt',city:'Rambouillet · Yvelines',s:12,pax:200,ch:80,note:'4.8',st:4,cc:true,eco:true,esat:true,fast:true,price:238,acc:'25 min du Technocentre de Guyancourt',scene:'domaine',h:205,inc:['Plénière et 3 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Option team building en forêt']},
+ {id:2,ph:'1593020284097-bfd623d9c475',name:'Hôtel Les Docks',city:'Boulogne-Billancourt · Hauts-de-Seine',s:9,pax:180,ch:120,note:'4.6',st:4,cc:false,eco:false,esat:false,fast:true,price:196,acc:'Métro 9 · 10 min du siège',scene:'ville',h:210,inc:['Plénière et 2 sous-commissions','Pauses et déjeuner','Chambre single','Wifi']},
+ {id:3,ph:'1629298642815-b83a5de6dcc6',name:'Château des Trois Rivières',city:'Vernon · Eure',s:7,pax:140,ch:48,note:'4.8',st:4,cc:false,eco:true,esat:false,fast:false,price:312,acc:'Saint-Lazare → Vernon 45 min',scene:'domaine',h:30,inc:['Plénière et 4 sous-commissions','Pension complète','Chambre single','Soirée privatisée']},
+ {id:4,ph:'1705591930871-68ecb786773d',name:'Abbaye des Vaux',city:'Cernay-la-Ville · Yvelines',s:6,pax:90,ch:52,note:'4.7',st:3,cc:false,eco:false,esat:true,fast:true,price:268,acc:'30 min du Technocentre de Guyancourt',scene:'restaurant',h:28,inc:['Salle plénière','Pauses par un traiteur ESAT','Déjeuner et dîner','Chambre single']},
+ {id:5,ph:'1773828755374-0ee802d9f44b',name:'Campus Seine Ouest',city:'Issy-les-Moulineaux · Hauts-de-Seine',s:15,pax:300,ch:110,note:'4.5',st:3,cc:true,eco:true,esat:true,fast:false,price:179,acc:'Tram T2 · 8 min du siège',scene:'pleniere',h:200,inc:['Plénière et 6 sous-commissions','Pension complète','Chambre single','Team building inclus']},
+ {id:6,ph:'1773410994745-79a368ca4de2',name:'Grand Hôtel du Parc',city:'Saint-Germain-en-Laye · Yvelines',s:10,pax:260,ch:140,note:'4.7',st:4,cc:true,eco:false,esat:false,fast:true,price:289,acc:'RER A · 20 min de La Défense',scene:'pleniere',h:20,inc:['Plénière et 3 sous-commissions','Pension complète','Chambre single','Accès spa']},
+ {id:7,ph:'1760995579965-3a1e5cb3dcd2',name:'Le Clos des Crayères',city:'Reims · Marne',s:5,pax:70,ch:38,note:'4.9',st:5,cc:false,eco:true,esat:false,fast:false,price:345,acc:'Paris-Est → Reims 45 min',scene:'restaurant',h:12,inc:['Salle plénière','Pension complète, accords mets-vins','Chambre single','Visite de cave']},
+ {id:8,ph:'1631613565820-4bc019cf5ed8',name:'Manoir de Chevreuse',city:'Saint-Rémy · Yvelines',s:8,pax:120,ch:60,note:'4.8',st:4,cc:false,eco:true,esat:false,fast:true,price:254,acc:'20 min du Technocentre de Guyancourt',scene:'domaine',h:150,inc:['Plénière et 2 sous-commissions','Pauses, déjeuner et dîner','Chambre single','Activité nature encadrée']}
+];
+const FACT={1:.96,2:.98,3:.95,4:1,5:.97,6:.94,7:.99,8:.96};
+const TF={sem:1,jde:.34,rest:.22};
+const photo=(v,w,h)=>`https://images.unsplash.com/photo-${v.ph}?w=${w}&h=${h}&fit=crop&auto=format&q=70`;
+V.forEach(v=>v.img=scene(v.scene,v.h)+`<img class="vp" src="${photo(v,640,360)}" alt="${v.name}, photo d'illustration" loading="lazy" onerror="this.remove()">`);
+const CCS=['Marketing France','Communication · Relations presse','After-sales · Animation réseau','Direction Ingénierie'];
+const S={scr:'brief',req:{type:'sem',team:'int',pax:14,days:1,start:'2027-03-16',cc:CCS[0],pm:false},f:{eco:false,cc:false,esat:false,fast:false,sort:'reco',q:''},cart:[],chosen:null,appr:[],bc:null,booked:null};
+const STEPS=[['brief','La demande'],['search','La recherche'],['compare','La comparaison'],['validate','La validation']];
+const IDX={brief:0,search:1,compare:2,validate:3};
+const URLS={brief:'onemice.fr/demande/nouvelle',search:'onemice.fr/recherche?region=ile-de-france-ouest',compare:'onemice.fr/demande/27-00418/offres',validate:'onemice.fr/demande/27-00418/validation'};
+const days=()=>S.req.type==='rest'?1:S.req.days;
+const unitPub=v=>Math.round(v.price*TF[S.req.type]);
+const offerOf=v=>{const pub=unitPub(v), price=Math.round(pub*FACT[v.id]), total=price*S.req.pax*days(); return {v,price,pub:Math.round(pub*1.07),total,l:light(S.req.type,price,total,v.cc)};};
+let animCmp=true;
+function go(scr){ S.scr=scr; animCmp=true; render(true); const a=$('#app'); if(a.getBoundingClientRect().top<0) a.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'}); }
+function render(){
+  $('#appUrl').textContent=URLS[S.scr]; const k=IDX[S.scr];
+  $('#stepper').innerHTML=STEPS.map(([s,n],i)=>`<div class="${i<k||S.bc&&i===3?'ok':i===k?'on':''}"><em>${i<k||S.bc&&i===3?'✓':i+1}</em>${n}</div>`).join('');
+  ({brief:rBrief,search:rSearch,compare:rCompare,validate:rValidate})[S.scr]();
+}
+function rBrief(){
+  const r=S.req; $('#cartbar').innerHTML='';
+  $('#screen').innerHTML=`<h4>Nouvelle demande</h4><div class="crumb">Accueil / Nouvelle demande</div>
+  <div class="brief">
+    <div><label for="bType">Type de prestation</label><select class="sel" id="bType">${Object.entries(TYPES).map(([k,t])=>`<option value="${k}" ${k===r.type?'selected':''}>${t}</option>`).join('')}</select></div>
+    <div class="full"><label for="bTeam">Équipe organisatrice</label><select class="sel" id="bTeam">${Object.entries(TEAMS).map(([k,t])=>`<option value="${k}" ${k===r.team?'selected':''}>${t.n}</option>`).join('')}</select></div>
+    <div><label for="bReg">Lieu</label><select class="sel" id="bReg"><option>Île-de-France ouest et alentours</option></select></div>
+    <div><label for="bPax">Participants</label><input class="inp" id="bPax" type="number" min="5" max="300" value="${r.pax}"></div>
+    <div><label for="bDays">Durée (jours)</label><select class="sel" id="bDays">${[1,2,3].map(d=>`<option ${d===r.days?'selected':''}>${d}</option>`).join('')}</select></div>
+    <div><label for="bStart">Date de début</label><input class="inp" id="bStart" type="date" value="${r.start}"></div>
+    <div><label for="bCc">Centre de coût</label><select class="sel" id="bCc">${CCS.map(t=>`<option ${t===r.cc?'selected':''}>${t}</option>`).join('')}</select></div>
+    <label class="tog full"><input type="checkbox" id="bPm" ${r.pm?'checked':''}> Être accompagné par un chef de projet IME</label>
+    <div class="full"><button class="pbtn dark" id="bGo" type="button"><span class="ms">search</span>Rechercher les lieux</button></div>
+  </div>
+  <div class="hint"><span class="ms">info</span><span>Exemple : le séminaire d'une équipe marketing, 14 personnes, une journée au vert près du Technocentre. Essayez ensuite l'équipe « RP et presse » : les plafonds s'élargissent et les feux changent.</span></div>`;
+  $('#bGo').onclick=()=>{ r.team=$('#bTeam').value; r.type=$('#bType').value; r.pax=Math.max(5,Math.min(300,+$('#bPax').value||40)); r.days=+$('#bDays').value; r.start=$('#bStart').value||r.start; r.cc=$('#bCc').value; r.pm=$('#bPm').checked; S.cart=S.cart.filter(id=>V.find(v=>v.id===id).pax>=r.pax); go('search'); };
+}
+function list(){
+  let l=V.filter(v=>v.pax>=S.req.pax);
+  if(S.f.eco) l=l.filter(v=>v.eco); if(S.f.cc) l=l.filter(v=>v.cc); if(S.f.esat) l=l.filter(v=>v.esat); if(S.f.fast) l=l.filter(v=>v.fast);
+  const q=S.f.q.trim().toLowerCase(); if(q) l=l.filter(v=>(v.name+' '+v.city).toLowerCase().includes(q));
+  const lo={vert:0,orange:1,rouge:2};
+  if(S.f.sort==='prix') l=[...l].sort((a,b)=>a.price-b.price);
+  if(S.f.sort==='note') l=[...l].sort((a,b)=>b.note-a.note);
+  if(S.f.sort==='feu') l=[...l].sort((a,b)=>lo[offerOf(a).l]-lo[offerOf(b).l]);
+  return l;
+}
+function rSearch(){
+  const f=S.f, l=list(), r=S.req, d0=new Date(r.start), d1=new Date(d0.getTime()+(days()-1)*864e5);
+  $('#screen').innerHTML=`<div class="search"><div class="side">
+    <div><h4>Options de recherche</h4><div class="crumb">Accueil / Résultats de recherche (${l.length})</div></div>
+    <input class="inp" value="Île-de-France ouest et alentours" aria-label="Ville ou adresse" readonly>
+    <input class="inp" id="fq" placeholder="Recherche par texte libre" value="${f.q}" aria-label="Recherche par texte libre">
+    <div class="row2"><input class="inp" value="${d0.toLocaleDateString('fr-FR')}" aria-label="De" readonly><input class="inp" value="${d1.toLocaleDateString('fr-FR')}" aria-label="À" readonly></div>
+    <button class="pbtn dark" type="button" id="bBack"><span class="ms">tune</span>Modifier la demande</button>
+    <h5>Trier</h5>
+    <select class="sel" id="fsort" aria-label="Trier">${[['reco','Trier par recommandation'],['feu','Trier par feu tricolore'],['prix','Trier par prix croissant'],['note','Trier par note']].map(([k,t])=>`<option value="${k}" ${f.sort===k?'selected':''}>${t}</option>`).join('')}</select>
+    <div class="toggles" style="margin-top:8px">
+      <label class="tog"><input type="checkbox" id="fcc" ${f.cc?'checked':''}> Partenaires sous contrat uniquement</label>
+      <label class="tog"><input type="checkbox" id="feco" ${f.eco?'checked':''}> Avec certificat environnemental</label>
+      <label class="tog"><input type="checkbox" id="fesat" ${f.esat?'checked':''}> Prestataires inclusifs (ESAT, EA)</label>
+      <label class="tog"><input type="checkbox" id="ffast" ${f.fast?'checked':''}> Réponse rapide</label>
+    </div></div>
+    <div class="results">${l.length?`<div class="cards">${l.map(card).join('')}</div>`:`<div class="empty">Aucun lieu ne correspond à ces filtres. Retirez un filtre ou réduisez le nombre de participants.</div>`}</div></div>`;
+  $('#bBack').onclick=()=>go('brief');
+  $('#fq').oninput=e=>{f.q=e.target.value; const p=e.target.selectionStart; rSearch(); const el=$('#fq'); el.focus(); el.setSelectionRange(p,p);};
+  [['feco','eco'],['fesat','esat'],['fcc','cc'],['ffast','fast']].forEach(([id,k])=>$('#'+id).onchange=e=>{f[k]=e.target.checked; rSearch();});
+  $('#fsort').onchange=e=>{f.sort=e.target.value; rSearch();};
+  $$('[data-add]').forEach(b=>b.onclick=()=>{ const id=+b.dataset.add,i=S.cart.indexOf(id); if(i>=0) S.cart.splice(i,1); else if(S.cart.length<5) S.cart.push(id); rSearch(); });
+  cartbar();
+}
+function card(v){
+  const o=offerOf(v), inC=S.cart.includes(v.id), full=S.cart.length>=5&&!inC;
+  return `<article class="vcard"><div class="ph">${v.img}<span class="fl"><i style="background:${LC[o.l]}"></i>${LT[o.l]}</span></div><div class="bd">
+  <h6>${v.name}<br><span style="font-size:14px;font-weight:400">${v.city}</span></h6>
+  <div class="meta">Salles : ${v.s} | PAX : ${v.pax} | Chambres : ${v.ch}</div>
+  <div class="badges"><span>${v.note}</span><span>${v.st} <span class="ms">star</span></span>${v.eco?'<span title="Certificat environnemental"><span class="ms">eco</span></span>':''}${v.fast?'<span title="Réponse rapide"><span class="ms">timer</span></span>':''}${v.cc?'<span class="cc">Sous contrat</span>':''}${v.esat?'<span class="es">ESAT</span>':''}</div>
+  <div class="price"><span>Prix indicatif</span><b>${unitPub(v)} € HT</b></div>
+  <div class="meta" style="margin-top:-6px">par participant${S.req.type==='rest'?'':' et par jour'} · ${v.acc}</div>
+  <button class="pbtn ${inC?'incart':''}" type="button" data-add="${v.id}" ${full?'disabled':''}><span class="ms">${inC?'check':'shopping_bag'}</span>${inC?'Dans le panier':'Ajouter au panier'}</button></div></article>`;
+}
+function cartbar(){
+  const slots=[0,1,2,3,4].map(i=>{const v=V.find(x=>x.id===S.cart[i]); return `<div class="slot ${v?'f':''}" title="${v?v.name:'Emplacement libre'}">${v?v.name:'<span class="ms">add</span>'}</div>`;}).join('');
+  $('#cartbar').innerHTML=`<div class="cartbar">${slots}<button class="pbtn dark" type="button" id="bNext" ${S.cart.length?'':'disabled'}>Demander les offres</button></div>`;
+  $('#bNext').onclick=()=>{S.chosen=null; go('compare');};
+}
+function rCompare(){
+  $('#cartbar').innerHTML='';
+  const offers=S.cart.map(id=>offerOf(V.find(v=>v.id===id)));
+  const need2=false;
+  $('#screen').innerHTML=`<h4>Comparaison des offres</h4><div class="crumb">Demande 27-00418 · ${TYPES[S.req.type]} · ${S.req.pax} participants${S.req.type==='rest'?'':' · '+days()+' jour'+(days()>1?'s':'')} · ${TEAMS[S.req.team].n}${S.req.pm?' · accompagnée par un chef de projet IME':''}</div>
+  <div class="rfq">${offers.map(o=>`<div><span>${o.v.name}</span><em class="${animCmp&&!RM?'wait':'ok'}"><span class="ms">${animCmp&&!RM?'hourglass_top':'check'}</span>${animCmp&&!RM?'Demande envoyée':'Offre reçue'}</em></div>`).join('')}</div><div id="cmp"></div>`;
+  const ems=$$('.rfq em');
+  const show=()=>{
+    $('#cmp').innerHTML=`${need2?`<div class="twoq"><span class="ms">info</span><span>Au-delà de ${eur(SE.s1)} HT hors contrat, votre politique demande <b>deux devis</b>. Ajoutez un second lieu pour pouvoir choisir.</span></div>`:''}<div class="tablewrap"><table class="cmp"><thead><tr><th>Lieu</th><th>Offre / pers.${S.req.type==='rest'?'':' / jour'}</th><th>Total HT</th><th>Prestations incluses</th><th>Accès</th><th>RSE</th><th>Feu</th><th></th></tr></thead><tbody>
+    ${offers.map(o=>`<tr><td><img class="cth" src="${photo(o.v,240,150)}" alt="" loading="lazy" onerror="this.remove()"><b>${o.v.name}</b><br><span style="font-size:13px;color:#6B7782">${o.v.city}${o.v.cc?' · sous contrat':''}</span></td><td class="num"><s>${o.pub} € tarif public</s><b>${o.price} € HT</b></td><td class="num"><b>${eur(o.total)}</b></td><td><ul>${(S.req.type==='rest'?['Menu trois plats','Boissons incluses','Salon privatisé']:o.v.inc).map(x=>`<li>${x}</li>`).join('')}<li>Annulation sans frais jusqu'à J-${o.v.fast?30:45}</li></ul></td><td>${o.v.acc}</td><td style="font-size:13.5px">${[o.v.eco?'Certifié':'',o.v.esat?'Offre ESAT':''].filter(Boolean).join('<br>')||'·'}</td><td><span class="lt"><i style="background:${LC[o.l]}"></i>${LT[o.l]}</span></td><td><button class="pbtn dark pick" type="button" data-pick="${o.v.id}" ${need2?'disabled title="Deux devis requis"':''}>Choisir</button></td></tr>`).join('')}
+    </tbody></table></div><p style="font:13.5px/1.45 var(--f);color:#6B7782;margin-top:12px">Chaque offre chiffre les mêmes postes. La mise en concurrence reste tracée dans le dossier.</p>
+    <div class="actions"><button class="pbtn" type="button" id="bBack2">Retour à la recherche</button></div>`;
+    $$('[data-pick]').forEach(b=>b.onclick=()=>{ S.chosen=offerOf(V.find(v=>v.id===+b.dataset.pick)); S.appr=[]; S.bc=null; S.booked=null; rSugg(); go('validate'); });
+    $('#bBack2').onclick=()=>go('search');
+  };
+  const done=e=>{e.className='ok'; e.innerHTML='<span class="ms">check</span>Offre reçue';};
+  if(RM||!animCmp){ ems.forEach(done); show(); return; }
+  animCmp=false;
+  ems.forEach((e,i)=>setTimeout(()=>{ if(!e.isConnected) return; done(e); if(i===ems.length-1) setTimeout(()=>{ if($('#cmp')) show(); },350); },600+i*500));
+}
+function rValidate(){
+  const o=S.chosen, need=o.l==='rouge'?['N+2','Achats']:['N+1'].concat(S.req.team==='int'&&S.req.type!=='rest'?['RH']:[]);
+  const names={'N+1':['Manager (N+1)',o.l==='orange'?'Valide en connaissant le motif de l\'écart':'Responsable du centre de coût, notifié par e-mail'],'RH':['Ressources humaines','Validation en amont des team buildings et séminaires internes'],'N+2':['Direction (N+2)','Décide sur justification de l\'organisateur'],'Achats':['Achats Marketing & Communication','Avis, ou bascule vers un accompagnement agence']};
+  const pend=need.find(n=>!S.appr.includes(n));
+  if(!pend&&!S.bc){ S.bc='IVA-PO-2027-0'+(4180+o.v.id*3); book(); }
+  $('#stepper').innerHTML=STEPS.map(([s,n],i)=>`<div class="${i<3||S.bc?'ok':'on'}"><em>${i<3||S.bc?'✓':i+1}</em>${n}</div>`).join('');
+  const cap=capOf(S.req.type);
+  $('#screen').innerHTML=`<h4>Validation</h4><div class="crumb">${o.v.name} · ${eur(o.total)} HT</div>
+  <div class="two"><div class="vpanel"><h6>Résultat du feu tricolore</h6><div class="bigl"><div class="tlamp" data-l="${o.l}" aria-hidden="true"><i class="r"></i><i class="o"></i><i class="g"></i></div>
+    <p><b style="color:${LC[o.l]}">${o.l==='vert'?'Conforme':o.l==='orange'?'Validation avec motif':'Hors politique, sans blocage'}</b>${o.price} € HT par participant${S.req.type==='rest'?'':' et par jour'} pour un plafond de ${cap} €, ${eur(o.total)} HT au total${o.v.cc?', lieu sous contrat':''}. ${o.l==='vert'?'Dans la politique de l\'équipe : le N+1 valide.':o.l==='orange'?'Écart toléré ou lieu non référencé : le N+1 valide avec motif, les Achats sont informés.':'Au-delà de la tolérance ou du seuil small events : la demande n\'est pas bloquée, le N+2 décide et les Achats donnent leur avis.'}</p></div>
+    <p class="note" style="font-family:var(--f)">Plafond de l'équipe « ${TEAMS[S.req.team].n} » : ${cap} € (tolérance +15 %). Avis Achats au-delà de ${eur(SE.s2)} par événement.</p></div>
+  <div class="vpanel"><h6>Circuit de validation</h6><ul class="wf">
+    <li class="ok"><span class="ic"><span class="ms">check</span></span><div>Demandeur<small>Demande soumise</small></div><span></span></li>
+    ${need.map(n=>{const ok=S.appr.includes(n); return `<li class="${ok?'ok':'pend'}"><span class="ic"><span class="ms">${ok?'check':'hourglass_top'}</span></span><div>${names[n][0]}<small>${ok?"Accord donné dans l'outil":names[n][1]}</small></div>${!ok&&n===pend?`<button class="pbtn dark pick" type="button" id="bAppr">Simuler l'accord</button>`:'<span></span>'}</li>`}).join('')}
+    <li class="${pend?'':'ok'}"><span class="ic"><span class="ms">${pend?'hourglass_top':'check'}</span></span><div>Bon de commande<small>${pend?'En attente du circuit':S.bc+' · remonté dans Ivalua'}</small></div><span></span></li>
+  </ul>${pend?'':`<div class="po"><b>${S.bc}</b> émis et remonté dans Ivalua, sans ressaisie par l'organisateur. Une facture mensuelle consolidée suivra. Le dossier rejoint votre reporting : interrogez-le avec l'assistant IA.</div>`}</div></div>
+  <div class="actions"><button class="pbtn" type="button" id="bBack3">Changer d'offre</button>${pend?'':`<a class="pbtn dark" href="#ia" id="bIa"><span class="ms">auto_awesome</span>Analyser avec l'assistant IA</a><button class="pbtn" type="button" id="bRe">Recommencer</button>`}</div>`;
+  if($('#bAppr')) $('#bAppr').onclick=()=>{ S.appr.push(pend); rValidate(); };
+  $('#bBack3').onclick=()=>{ S.bc=null; S.booked=null; rSugg(); go('compare'); };
+  if($('#bRe')) $('#bRe').onclick=()=>{ S.cart=[]; S.chosen=null; S.appr=[]; S.bc=null; S.booked=null; rSugg(); go('brief'); };
+  if($('#bIa')) $('#bIa').onclick=()=>setTimeout(()=>askQ(QS.find(q=>q.k==='mine').q),RM?0:500);
+}
+function book(){ const o=S.chosen; S.booked={o,bc:S.bc,cc:S.req.cc}; rSugg(); }
+
+/* ---------- Temps 2 : assistant IA ---------- */
+const AVG={sem:248,jde:79,rest:54};
+const bars=(rows,max,fmt)=>rows.map(([n,v])=>`<div class="bar"><span>${n}</span><span class="t"><i style="width:${v/max*100}%"></i></span><span class="v">${fmt(v)}</span></div>`).join('');
+const QS=[
+ {k:'mine',q:'Où en est ma demande et comment se situe-t-elle dans la politique ?',need:true,a:()=>{const b=S.booked,o=b.o,t=S.req.type,av=AVG[t]; return {t:`Votre ${TYPES[t].toLowerCase()} au ${o.v.name} est validé : bon de commande ${b.bc} remonté dans Ivalua, ${eur(o.total)} HT imputés au centre de coût ${b.cc}. À ${o.price} € HT par participant, il se situe ${o.price<=av?'sous':'au-dessus de'} la moyenne Renault pour cette prestation (${av} €). Feu : ${LT[o.l].toLowerCase()}.`,v:`<table class="minitab"><tr><th>Indicateur</th><th class="r">Votre demande</th><th class="r">Moyenne Renault</th></tr><tr><td>Prix / participant</td><td class="r">${o.price} €</td><td class="r">${av} €</td></tr><tr><td>Offres comparées</td><td class="r">${S.cart.length}</td><td class="r">2,4</td></tr><tr><td>Lieu sous contrat-cadre</td><td class="r">${o.v.cc?'Oui':'Non'}</td><td class="r">26 %</td></tr><tr><td>Commande ressaisie dans Ivalua</td><td class="r">Non</td><td class="r">Non</td></tr></table>`};}},
+ {k:'eco',q:"Quel taux d'économie moyen sur 2025, et selon quelle méthode ?",a:()=>({t:"Sur 2025, 7,8 % d'économies sur 812 000 € HT, soit 63 300 €. La négociation à prestations égales en apporte 4,1 points, l'écart au tarif public 2,2 points et les coûts évités 1,5 point. Sur la seule méthode N / N‑1, à prestations comparables, l'économie est de 3,2 %.",v:bars([['Négociation à prestations égales',4.1],['Écart au tarif public',2.2],['Coûts évités',1.5],['Méthode N / N‑1 seule',3.2]],5,v=>String(v).replace('.',',')+' %')})},
+ {k:'equipe',q:'Combien coûte un événement en moyenne, par équipe organisatrice ?',a:()=>({t:"Un événement coûte en moyenne 3 515 € HT. Les RP et la presse sont les plus élevés (5 100 €), conformément à leurs plafonds élargis ; l'animation du réseau after-sales est la moins chère (2 900 €).",v:bars([['RP et presse',5100],['Direction',4600],['Marketing',3400],['After-sales · réseau',2900]],5600,v=>v.toLocaleString('fr-FR').replace(/ | /g,' ')+' €')})},
+ {k:'feu',q:'Quelle part des dossiers sort de la politique, et qui a validé ?',a:()=>({t:"74 % des dossiers sont conformes et validés par le N+1, 21 % ont été validés avec motif, et 5 % sont passés par le N+2 avec avis des Achats. Aucune demande n'a été bloquée.",v:`<div class="stack"><i style="flex:74;background:var(--go)"></i><i style="flex:21;background:var(--wait)"></i><i style="flex:5;background:var(--stop)"></i></div><div class="leg"><span><i style="background:var(--go)"></i>Conformes 74 %</span><span><i style="background:var(--wait)"></i>Avec motif 21 %</span><span><i style="background:var(--stop)"></i>N+2 et Achats 5 %</span></div>`})},
+ {k:'rh',q:'Combien de team buildings ont été validés par les RH ce semestre ?',a:()=>({t:"Ce semestre, 46 team buildings et séminaires internes ont été soumis : 41 validés par les RH, 3 refusés et 2 en attente. Le délai moyen de validation est de 1,6 jour.",v:`<table class="minitab"><tr><th>Statut</th><th class="r">Nombre</th><th class="r">Montant HT</th></tr><tr><td>Validés par les RH</td><td class="r">41</td><td class="r">128 400 €</td></tr><tr><td>Refusés</td><td class="r">3</td><td class="r">9 700 €</td></tr><tr><td>En attente</td><td class="r">2</td><td class="r">6 100 €</td></tr></table>`})}
+];
+function rSugg(){
+  $('#sugg').innerHTML=QS.filter(q=>!q.need||S.booked).map(q=>`<button type="button" class="${q.k==='mine'?'new':''}" data-k="${q.k}">${q.q}</button>`).join('');
+  $$('#sugg button').forEach(b=>b.onclick=()=>askQ(QS.find(q=>q.k===b.dataset.k).q));
+}
+let busy=false;
+function add(cls,html){ const d=document.createElement('div'); d.className='msg '+cls; d.innerHTML=html; $('#log').appendChild(d); $('#log').scrollTop=$('#log').scrollHeight; return d; }
+function match(q){
+  const s=q.toLowerCase();
+  const rules=[['mine',['ma demande','mon séminaire','ma réservation','où en est']],['eco',['économie','economie','saving','méthode','n-1']],['equipe',['équipe','equipe','par participant','coût moyen','cout moyen','rp','presse']],['rh',[' rh','rh ','team building','ressources humaines']],['feu',['politique','feu','conform','valid']]];
+  for(const [k,w] of rules){ if(w.some(x=>s.includes(x))){ const Q=QS.find(z=>z.k===k); if(Q.need&&!S.booked) return {t:"Aucune demande n'est encore validée dans cette session. Terminez le temps 1 de la simulation, puis reposez la question."}; return Q.a(); } }
+  return {t:"Je peux répondre sur les économies et leur méthode de calcul, les coûts par équipe, la conformité à la politique, les validations RH et vos demandes. Essayez une des questions suggérées."};
+}
+function askQ(q,cb){
+  if(busy||!q.trim()) return; busy=true;
+  add('u',q.replace(/</g,'&lt;')); $('#askIn').value='';
+  const a=add('a','<div class="who3"><span class="ms">auto_awesome</span>Assistant OneMICE</div><span class="typing"><i></i><i></i><i></i></span>');
+  const res=match(q);
+  const fin=()=>{ a.innerHTML=`<div class="who3"><span class="ms">auto_awesome</span>Assistant OneMICE</div><p class="tx"></p>`; const tx=a.querySelector('.tx');
+    const end=()=>{ tx.textContent=res.t; if(res.v){ const v=document.createElement('div'); v.className='viz'; v.innerHTML=res.v; a.appendChild(v); } const m=document.createElement('p'); m.className='meta2'; m.textContent='Rapport enregistrable · données fictives'; a.appendChild(m); $('#log').scrollTop=$('#log').scrollHeight; busy=false; if(cb) cb(); };
+    if(RM){ end(); return; } let i=0; const id=setInterval(()=>{ i+=4; tx.textContent=res.t.slice(0,i); $('#log').scrollTop=$('#log').scrollHeight; if(i>=res.t.length){ clearInterval(id); end(); } },16); };
+  setTimeout(fin,RM?0:700);
+}
+$('#askForm').addEventListener('submit',e=>{ e.preventDefault(); askQ($('#askIn').value); });
+function welcome(){ add('a','<div class="who3"><span class="ms">auto_awesome</span>Assistant OneMICE</div><p>Bonjour. Posez une question en français sur la dépense événementielle de Renault : je prépare le rapport, vous gardez la main sur les décisions.</p>'); }
+welcome();
+let demoRun=0;
+function replay(){
+  if(busy) return; const run=++demoRun; $('#log').innerHTML=''; welcome();
+  const ks=(S.booked?['mine']:[]).concat(['eco','equipe','feu','rh']); let n=0;
+  const next=()=>{ if(run!==demoRun||n>=ks.length) return; const k=ks[n++], q=QS.find(z=>z.k===k).q; setTimeout(()=>{ if(run===demoRun) askQ(q,next); },RM?0:900); };
+  next();
+}
+$('#replay').onclick=()=>{ const l=$('#log').closest('.app'); if(l.getBoundingClientRect().top<0||l.getBoundingClientRect().top>innerHeight*.6) $('#ia').scrollIntoView({behavior:RM?'auto':'smooth',block:'start'}); replay(); };
+rSugg();
+
+/* ---------- Temps 3 : module Analytics ---------- */
+const ak=(t,v,rows)=>`<div class="ak"><div class="h"><span>${t}</span><b>${v}</b></div><ul>${rows.map(([a,b])=>`<li><span>${a}</span><span>${b}</span></li>`).join('')}</ul></div>`;
+const hb=(rows,max,fmt)=>rows.map(([n,v])=>`<div class="hb"><span>${n}</span><span class="t"><i style="width:${v/max*100}%"></i></span><span class="v">${fmt(v)}</span></div>`).join('');
+const tb=(head,rows,r)=>`<div class="atw"><table class="at"><thead><tr>${head.map((h,i)=>`<th class="${r&&r.includes(i)?'r':''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map((c,i)=>`<td class="${r&&r.includes(i)?'r':''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const AN=[
+ {t:"Vue d'ensemble des KPI",d:"La photographie de la dépense small events : volume, nombre de réservations, coûts moyens et émissions, par type de contrat.",ind:['Volume brut de réservation','Nombre de réservations','Coût moyen de l\'événement','Coût moyen par participant','Tarif moyen de la chambre','Émissions de CO₂'],
+  scr:()=>`<div class="aks">${ak('Volume brut de réservation','812 000 €',[['Marché libre','604 000 €'],['Sous contrat-cadre','208 000 €']])}${ak('Nombre de réservations','231',[['Marché libre','172'],['Sous contrat-cadre','59']])}${ak('Ø Coût par événement','3 515 €',[['Marché libre','3 510 €'],['Sous contrat-cadre','3 525 €']])}${ak('Émissions de CO₂','38 t',[['Transport','27 t'],['Hébergement et lieux','11 t']])}</div>`,
+  q:["Quelle part de la dépense passe déjà par des lieux sous contrat-cadre ?","Un événement coûte-t-il plus cher aux RP ou au marketing ?"]},
+ {t:"Économies",d:"Chaque économie est calculée et tracée selon la méthode que votre contrôle de gestion reconnaît : N / N‑1, devis initial contre prix final, budget contre réel, coûts évités.",ind:['Économies totales et en % des dépenses','Économies de négociation','Écart par rapport au tarif','Économies par contrat','Comparaison N / N‑1'],
+  scr:()=>`<div class="aks">${ak('Aperçu des économies','7,8 %',[['Volume brut','812 000 €'],['Économies totales','63 300 €']])}${ak('Détail des économies','63 300 €',[['Négociation','33 300 €'],['Écart au tarif','17 800 €'],['Contrats-cadres','12 200 €']])}${ak('Méthode N / N‑1','3,2 %',[['Prestations comparables','148 dossiers'],['Écart constaté','26 000 €']])}</div>`,
+  q:["Quelle économie présenter au contrôle de gestion en N / N‑1 ?","Dans quels dossiers l'offre la moins chère n'a-t-elle pas été retenue, et pourquoi ?"]},
+ {t:"Fournisseurs",d:"Le classement de vos prestataires par volume, nombre de réservations et prix moyens : la base pour décider des contrats-cadres à intégrer et réduire le panel.",ind:['Réservations par prestataire','Volume brut','Prix moyen du logement','Prix moyen par participant','Top prestataires par chaîne'],
+  scr:()=>tb(['Fournisseur','Réservations','Volume brut','Ø Logement','Ø Participant'],[['Campus Seine Ouest','27','84 600 €','98 €','171 €'],['Domaine de la Forêt','19','71 300 €','122 €','229 €'],['Grand Hôtel du Parc','12','52 800 €','136 €','268 €'],['Hôtel Les Docks','16','38 900 €','112 €','188 €']],[1,2,3,4]),
+  q:["Sur quels lieux négocier un contrat-cadre ?","Combien de prestataires différents pour le même besoin, selon les équipes ?"]},
+ {t:"Contrôle MICE",d:"Le suivi dossier par dossier : équipe, statut, montant, feu, inactivité. Les dossiers en attente de validation remontent d'eux-mêmes.",ind:['Dossiers par équipe et centre de coût','Montant de l\'offre','Feu tricolore','Statut et date de validité','Plus de 24 h d\'inactivité','Lien direct vers le dossier'],
+  scr:()=>tb(['Dossier','Équipe','Statut','Montant','Inactivité'],[['27-00412 · Dîner journalistes','RP et presse','Validé N+1','Moins de 5 000 €','—'],['27-00408 · Team building marketing','Marketing','Validation RH','Moins de 5 000 €','Plus de 24 h'],['27-00403 · Séminaire réseau','After-sales','Avis Achats','30 000 € et plus','—'],['27-00399 · Offsite direction','Direction','Actif','Pas encore d\'offre','Plus de 24 h']]),
+  q:["Quels dossiers attendent une validation depuis plus de 24 heures ?","Quels team buildings n'ont pas encore été validés par les RH ?"]},
+ {t:"Finances",d:"La lecture financière : volume par type de contrat, factures mensuelles consolidées, engagements par centre de coût, commandes remontées dans Ivalua.",ind:['Volume par type de contrat','Factures consolidées émises','Commandes remontées dans Ivalua','Engagements par centre de coût','Acomptes avancés'],
+  scr:()=>`<div class="aks">${ak('Factures consolidées','12',[['Factures prestataires reçues par OneMICE','231'],['Commandes ressaisies à la main','0']])}${ak('Engagements par direction','812 000 €',[['Marketing et communication','486 000 €'],['After-sales','214 000 €'],['Autres directions','112 000 €']])}${ak('Acomptes avancés par OneMICE','96 000 €',[['Avancés par Renault','0 €']])}</div>`,
+  q:["Quel engagement financier par centre de coût ce trimestre ?","Quelles commandes restent à rapprocher dans Ivalua ?"]},
+ {t:"Rapports",d:"Vos rapports personnalisés, enregistrés et mis à jour automatiquement, envoyés chaque semaine et exportables en tableur, en PDF ou vers Ivalua.",ind:['Rapports personnalisés enregistrés','Mise à jour automatique','Envoi hebdomadaire','Exports tableur et PDF','Remontée dans Ivalua'],
+  scr:()=>tb(['Rapport','Fréquence','Destinataires','Format'],[['Performance achats N / N‑1','Trimestrielle','Contrôle de gestion','PDF'],['Conformité à la politique par équipe','Hebdomadaire','Achats, managers','Tableur'],['Team buildings validés','Mensuelle','Ressources humaines','Tableur'],['Commandes et factures','Hebdomadaire','Comptabilité','Ivalua']]),
+  q:["Préparer la revue de performance avec un rapport à jour, sans extraction manuelle","Partager chaque mois aux RH le suivi des team buildings"]}
+];
+let AI=0;
+function rAn(){
+  $('#antabs').innerHTML=AN.map((a,i)=>`<button type="button" role="tab" aria-selected="${i===AI}" data-i="${i}">${a.t}<small>${String(i+1).padStart(2,'0')}</small></button>`).join('');
+  $$('#antabs button').forEach(b=>b.onclick=()=>{AI=+b.dataset.i; rAn();});
+  const a=AN[AI];
+  $('#anp').innerHTML=`<div class="anp-h"><h3>${a.t}</h3><p>${a.d}</p><div class="anp-ind">${a.ind.map(x=>`<span>${x}</span>`).join('')}</div></div>
+  <div class="anp-scr"><div class="fl2"><span>Renault Group · Achats Marketing &amp; Communication</span><span>Date de l'événement</span><span>01.01.2027 → 31.12.2027</span><span>Type de contrat</span></div>${a.scr()}</div>
+  <div class="anp-q"><h4>Les questions auxquelles il répond</h4><ul>${a.q.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+}
+rAn();
+
+render();
 })();
 </script>
 
